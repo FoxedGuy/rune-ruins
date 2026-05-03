@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="1_xys6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1snfn"]
-size = Vector2(134, 132)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0b2u"]
-size = Vector2(1159, 398)
+size = Vector2(1159, 242)
 
 [node name="player_test_scene" type="Node2D" unique_id=969352430]
 
@@ -15,19 +15,22 @@ size = Vector2(1159, 398)
 script = ExtResource("1_e0b2u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1948084570]
-position = Vector2(57, 56)
 shape = SubResource("RectangleShape2D_1snfn")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=1415132394]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1415132394]
 texture = ExtResource("1_xys6k")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1527530365]
+ignore_rotation = false
+position_smoothing_speed = 2.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=472813825]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1686217305]
-position = Vector2(576, 448)
+position = Vector2(574, 665)
 shape = SubResource("RectangleShape2D_e0b2u")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D" unique_id=1075252337]
-position = Vector2(1, 2.5000038)
-scale = Vector2(9.015625, 3.1015623)
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1075252337]
+position = Vector2(575, 664)
+scale = Vector2(9.015625, 1.8906249)
 texture = ExtResource("1_xys6k")
