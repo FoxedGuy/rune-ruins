@@ -1,9 +1,27 @@
 extends CharacterBody2D
-
-
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
 
+@onready
+var sprite = $Sprite2D
+
+# TODO: should be changed along the way
+var health = 100
+var mana = 30
+var stamina = 50
+var is_attacking: bool = false
+var weapon 
+
+func attack() -> void:
+	is_attacking = true
+	stamina -= 10
+	is_attacking = false
+	
+func get_damage(damage: int) -> void:
+	health -= damage
+
+func _input(event: InputEvent) -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
