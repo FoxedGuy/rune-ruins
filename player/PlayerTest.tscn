@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tw3s7qmlfg2g"]
 
-[ext_resource type="PackedScene" uid="uid://b1osu3hae0plb" path="res://Player.tscn" id="1_kleso"]
+[ext_resource type="PackedScene" uid="uid://b1osu3hae0plb" path="res://player/Player.tscn" id="1_kleso"]
 [ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="2_hgdec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yadnk"]
