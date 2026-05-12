@@ -1,19 +1,21 @@
 extends CharacterBody2D
 class_name Player
 @export var SPEED = 400.0
-@export var JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -500.0
 
 @onready
 var sprite = $Sprite2D
+
+@onready
+var state_machine = $StateMachine
+
+@onready
+var label = $Label
 
 var health: int
 var mana: int
 var stamina: int
 var weapon
-
-# TODO: implement states
-var move_state
-var attack_state
 
 func _ready() -> void:
 	health = 100
@@ -31,6 +33,17 @@ func get_damage(damage: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	pass
+	
+func get_wall_side() -> float:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var normal = collision.get_normal()
+
+		return normal.x
+	return 0
+	
+func _process(delta:float) -> void:
+	label.text = state_machine.current_state.to_string()
 
 #func _physics_process(delta: float) -> void:
 	## Add the gravity.
