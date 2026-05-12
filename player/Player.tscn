@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://b1osu3hae0plb"]
 
-[ext_resource type="Script" uid="uid://cvscmr36uswp3" path="res://player/player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://cvscmr36uswp3" path="res://player/Player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="2_kne1u"]
 [ext_resource type="Script" uid="uid://dg61mlnl8425q" path="res://state_machine/state_machine.gd" id="3_wnvi2"]
 [ext_resource type="Script" uid="uid://yk0qhnkhcpp8" path="res://player/states/idle_state.gd" id="4_83hs8"]
 [ext_resource type="Script" uid="uid://uyme8i2poykp" path="res://player/states/run_state.gd" id="5_x8kxw"]
 [ext_resource type="Script" uid="uid://b1ea0p0x6i4tv" path="res://player/states/jump_state.gd" id="6_aqcbf"]
 [ext_resource type="Script" uid="uid://00kled86y8cr" path="res://player/states/fall_state.gd" id="7_gskgj"]
+[ext_resource type="Script" uid="uid://ct5uk4rfxvglr" path="res://player/states/on_wall_state.gd" id="8_06mnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1snfn"]
 size = Vector2(128, 128)
@@ -38,3 +39,12 @@ script = ExtResource("6_aqcbf")
 
 [node name="Falling" type="Node" parent="StateMachine" unique_id=917816279]
 script = ExtResource("7_gskgj")
+
+[node name="OnWall" type="Node" parent="StateMachine" unique_id=1698115019]
+script = ExtResource("8_06mnu")
+
+[node name="Label" type="Label" parent="." unique_id=1429804915]
+offset_left = -20.0
+offset_top = -90.0
+offset_right = 20.0
+offset_bottom = -67.0
