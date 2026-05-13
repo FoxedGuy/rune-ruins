@@ -1,6 +1,6 @@
 extends PlayerState
 
-const INPUT_BUFFER_TIME := 0.13
+const INPUT_BUFFER_TIME := 0.05
 
 var direction_buffer_timer := 0.0
 var buffered_direction_x := 0.0
@@ -13,7 +13,7 @@ func _enter(previous_state_path: String, data := {"wall_side": PlayerEnums.WallS
 	
 func update_physics(delta: float) -> void:
 	var input_direction_x := Input.get_axis("move_left", "move_right")
-	if not is_equal_approx(input_direction_x, 0.0):
+	if is_equal_approx(input_direction_x, 0.0):
 		buffered_direction_x = input_direction_x
 		direction_buffer_timer = INPUT_BUFFER_TIME
 	else:
@@ -24,7 +24,7 @@ func update_physics(delta: float) -> void:
 		used_direction_x = buffered_direction_x
 
 	player.velocity.x = player.SPEED * used_direction_x
-	player.velocity += player.get_gravity() * delta
+	player.velocity += player.get_gravity()* 0.5 * delta
 	player.move_and_slide()
 	
 	if Input.is_action_just_pressed("move_jump"):
