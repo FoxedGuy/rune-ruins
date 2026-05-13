@@ -1,11 +1,9 @@
 extends PlayerState
 
-var is_from_wall
-var from_wall
+var wall_side: PlayerEnums.WallSide
 
 func _enter(previous_state_path: String, data := {}) -> void:
-	is_from_wall = data['is_from_wall'] if "is_from_wall" in data else false
-	from_wall = data['wall'] if is_from_wall else null
+	wall_side = data['wall_side'] if "wall_side" in data else PlayerEnums.WallSide.NONE
 	#player.animation_player.play("fall")
 
 func update_physics(delta: float) -> void:
@@ -15,12 +13,11 @@ func update_physics(delta: float) -> void:
 	player.move_and_slide()
 	
 	if player.is_on_wall_only():
-		var wall = "right" if player.get_wall_side() < 0 else "left" 
-		
-		if not is_from_wall:
-			finished.emit(ONWALL, {"wall": wall})
-		elif wall != from_wall:
-			finished.emit(ONWALL, {"wall": wall})
+		var new_wall_side: PlayerEnums.WallSide = player.get_wall_side()
+		if wall_side == PlayerEnums.WallSide.NONE:
+			finished.emit(ONWALL, {"wall_side": new_wall_side})
+		elif wall_side != new_wall_side:
+			finished.emit(ONWALL, {"wall_side": new_wall_side})
 
 	if player.is_on_floor():
 		if is_equal_approx(input_direction_x, 0.0):

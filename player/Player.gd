@@ -34,13 +34,13 @@ func get_damage(damage: int) -> void:
 func _input(event: InputEvent) -> void:
 	pass
 	
-func get_wall_side() -> float:
+func get_wall_side() -> PlayerEnums.WallSide:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var normal = collision.get_normal()
 
-		return normal.x
-	return 0
+		return PlayerEnums.WallSide.RIGHT if normal.x < 0 else PlayerEnums.WallSide.LEFT
+	return PlayerEnums.WallSide.NONE
 	
 func _process(delta:float) -> void:
 	label.text = state_machine.current_state.to_string()
