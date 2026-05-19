@@ -18,8 +18,16 @@ func Update(delta:float):
 		rand_wander()
 		
 func update_physics(_delta: float) -> void:
-	if enemy:
-		enemy.velocity = move_direction * enemy.SPEED
+	if not enemy or not player:
+		return
+	if not enemy.is_on_floor():
+		enemy.velocity += enemy.get_gravity() * _delta
+	enemy.velocity = move_direction * enemy.SPEED
+	if enemy.is_on_wall() and enemy.is_on_floor():
+		move_direction.x *= -1
+		finished.emit(self, "Jump", { "return_state": "Idle" })
+
+	enemy.move_and_slide()
 		
 	var direction = player.global_position - enemy.global_position
 	

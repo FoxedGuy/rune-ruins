@@ -3,8 +3,8 @@ class_name EnemyState
 
 const IDLE = "Idle"
 const AGGRO = "Aggro"
-const FALLING = "Falling"
-const JUMPING = "Jumping"
+#const FALLING = "Falling"
+#const JUMPING = "Jumping"
 
 var enemy: Enemy
 
