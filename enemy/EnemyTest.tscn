@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dqhv6nvl2v0qf"]
+
+[ext_resource type="PackedScene" uid="uid://py558a653dln" path="res://enemy/Enemy.tscn" id="1_fduo7"]
+[ext_resource type="PackedScene" uid="uid://b1osu3hae0plb" path="res://player/Player.tscn" id="2_7k832"]
+[ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="3_7k832"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jafe"]
+size = Vector2(2437.5, 419)
+
+[node name="EnemyTest" type="Node2D" unique_id=2115474163]
+
+[node name="Enemy" parent="." unique_id=951354512 instance=ExtResource("1_fduo7")]
+position = Vector2(922, 14)
+
+[node name="Player" parent="." unique_id=779677344 instance=ExtResource("2_7k832")]
+position = Vector2(-275, 23)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=132884285]
+position = Vector2(-240, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1479374682]
+position = Vector2(490, 330.5)
+scale = Vector2(19.125, 3.2578125)
+texture = ExtResource("3_7k832")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=846250562]
+position = Vector2(493, 331)
+shape = SubResource("RectangleShape2D_7jafe")
