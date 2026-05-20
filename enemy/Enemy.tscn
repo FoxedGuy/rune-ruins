@@ -5,8 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="2_xgln8"]
 [ext_resource type="Script" uid="uid://dxqn6iv2ojshu" path="res://enemy/states/enemy_idle_state.gd" id="3_xgln8"]
 [ext_resource type="Script" uid="uid://xacj16w2sam8" path="res://enemy/states/enemy_aggro_state.gd" id="4_xp0jm"]
+[ext_resource type="Script" uid="uid://be5frvbwp3osg" path="res://enemy/states/enemy_fall_state.gd" id="6_xp0jm"]
+[ext_resource type="Script" uid="uid://8w5rd2gttjh8" path="res://enemy/states/enemy_jump_state.gd" id="7_vgkeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgkeb"]
+size = Vector2(121, 123)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=951354512]
 script = ExtResource("1_80fio")
@@ -15,10 +18,8 @@ script = ExtResource("1_80fio")
 texture = ExtResource("2_xgln8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597411814]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_vgkeb")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1681549862]
-ignore_rotation = false
 
 [node name="StateMachine" type="Node" parent="." unique_id=586342772]
 script = ExtResource("2_55d7h")
@@ -29,3 +30,15 @@ script = ExtResource("3_xgln8")
 
 [node name="Aggro" type="Node" parent="StateMachine" unique_id=709964797]
 script = ExtResource("4_xp0jm")
+
+[node name="Falling" type="Node" parent="StateMachine" unique_id=1475464540]
+script = ExtResource("6_xp0jm")
+
+[node name="Jumping" type="Node" parent="StateMachine" unique_id=485019744]
+script = ExtResource("7_vgkeb")
+
+[node name="Label" type="Label" parent="." unique_id=1452367346]
+offset_left = -98.0
+offset_top = -125.0
+offset_right = 107.0
+offset_bottom = -64.0

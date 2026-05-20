@@ -6,6 +6,10 @@ class_name Enemy
 
 @onready
 var sprite = $Sprite2D
+@onready
+var label = $Label
+@onready
+var state_machine = $StateMachine
 
 var health: int
 
@@ -19,3 +23,5 @@ func attack() -> void:
 func get_damage(damage: int) -> void:
 	health -= damage
 	health_changed.emit(health)
+func _process(delta:float)-> void:
+	label.text = state_machine.current_state.to_string()
