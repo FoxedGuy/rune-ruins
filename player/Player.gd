@@ -20,8 +20,10 @@ var max_stamina: int
 var health: int
 var mana: int
 var stamina: int
+
 var level: int
 var experience_points: int
+var experience_to_next_level: int
 
 var effects
 var weapon
