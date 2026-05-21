@@ -12,17 +12,29 @@ var state_machine = $StateMachine
 @onready
 var label = $Label
 
+# not const as those are level-dependent
+var max_health: int
+var max_mana: int
+var max_stamina: int
+
 var health: int
 var mana: int
 var stamina: int
+var level: int
+var experience_points: int
+
+var effects
 var weapon
+var inventory
+
+signal health_changed(current_health)
+signal mana_changed(current_mana)
+signal stamina_changed(current_stamina)
 
 func _ready() -> void:
 	health = 100
 	mana = 50
 	stamina = 80
-
-signal health_changed(new_value)
 
 func attack() -> void:
 	stamina -= 10
