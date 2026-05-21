@@ -33,10 +33,22 @@ signal health_changed(current_health)
 signal mana_changed(current_mana)
 signal stamina_changed(current_stamina)
 
-func _ready() -> void:
+func _init() -> void:
+	#TODO: load from savefile/resource?
+	max_health = 100
+	max_mana = 50
+	max_stamina = 70
+	
 	health = 100
 	mana = 50
-	stamina = 80
+	stamina = 70
+	
+	level = 1
+	experience_points = 0
+	experience_to_next_level = 100
+	
+func _ready() -> void:
+	print("Player ready!")
 
 func attack() -> void:
 	stamina -= 10
