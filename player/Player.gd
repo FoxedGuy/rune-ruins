@@ -49,16 +49,19 @@ func _init() -> void:
 	
 func _ready() -> void:
 	print("Player ready!")
+	
+func _input(event: InputEvent) -> void:
+	pass
 
+func _process(delta:float) -> void:
+	label.text = state_machine.current_state.to_string()
+	
 func attack() -> void:
 	stamina -= 10
 	
 func get_damage(damage: int) -> void:
 	health -= damage
 	health_changed.emit(health)
-
-func _input(event: InputEvent) -> void:
-	pass
 	
 func get_wall_side() -> PlayerEnums.WallSide:
 	for i in get_slide_collision_count():
@@ -68,5 +71,3 @@ func get_wall_side() -> PlayerEnums.WallSide:
 		return PlayerEnums.WallSide.RIGHT if normal.x < 0 else PlayerEnums.WallSide.LEFT
 	return PlayerEnums.WallSide.NONE
 	
-func _process(delta:float) -> void:
-	label.text = state_machine.current_state.to_string()
