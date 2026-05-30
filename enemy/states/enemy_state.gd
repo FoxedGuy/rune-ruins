@@ -12,6 +12,6 @@ var player: Player
 func _ready() -> void:
 	await owner.ready
 	enemy = owner as Enemy
-	player = enemy.get_parent().get_node("Player")
+	player = get_tree().get_first_node_in_group("Player")
 	assert(player != null,"Player needs to exist")
 	assert(enemy != null, "Something went wrong...") 
