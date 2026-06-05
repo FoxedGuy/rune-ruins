@@ -20,5 +20,6 @@ func update_physics(_delta:float)->void:
 		enemy.velocity.x = 0
 
 	enemy.move_and_slide()
-	
+	if direction.length() >200:
+		finished.emit(IDLE)
 	
