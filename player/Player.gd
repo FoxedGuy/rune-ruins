@@ -25,7 +25,7 @@ var level: int
 var experience_points: int
 var experience_to_next_level: int
 
-var effects
+var effects = []
 var weapon
 var inventory
 
@@ -83,6 +83,17 @@ func add_experience_points(exp_points: int) -> void:
 
 func attack() -> void:
 	stamina -= 10
+
+func heal(hp_to_add: int) -> void:
+	health = clamp(health+hp_to_add, 0, max_health)
+
+func add_effect(new_effect):
+	effects.append(new_effect)
+	#TODO: Effect class with "apply" method
+	
+func remove_effect(effect):
+	if effect in effects:
+		effects.erase(effect)
 
 func get_damage(damage: int) -> void:
 	health -= damage
