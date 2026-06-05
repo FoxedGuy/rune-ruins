@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1osu3hae0plb"]
 
-[ext_resource type="Script" uid="uid://cvscmr36uswp3" path="res://player/player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://cvscmr36uswp3" path="res://player/Player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://lo573ehi77hb" path="res://icon.svg" id="2_kne1u"]
 [ext_resource type="Script" uid="uid://dg61mlnl8425q" path="res://state_machine/state_machine.gd" id="3_wnvi2"]
 [ext_resource type="Script" uid="uid://yk0qhnkhcpp8" path="res://player/states/idle_state.gd" id="4_83hs8"]
@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1snfn"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D" unique_id=779677344]
+[node name="Player" type="CharacterBody2D" unique_id=779677344 groups=["Player"]]
 script = ExtResource("1_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1948084570]
